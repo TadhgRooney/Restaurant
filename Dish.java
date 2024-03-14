@@ -32,8 +32,6 @@ public class Dish {
 		
 	}
 
-	public String toString(){
-		return "Table number: " + tableNumber + " item: " + item;
-	}
+	
 	
 }

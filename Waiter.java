@@ -1,20 +1,22 @@
 package assignment3;
 
 public class Waiter extends Thread {
-    
+    Restaurant restaurant;
 
-    //Gets dishes from resturant collection and passesss to chef, starting chef thread
-    // waits while meal is being cooked 
-
-    Resturant resturant;
-
-    public Waiter(Resturant resturant){
-        this.resturant = resturant;
+    public Waiter(Restaurant restaurant) {
+        this.restaurant = restaurant;
     }
 
-    public void run(){
-        Dish d;
-
-        
+    // Gets dishes from restaurant collection and passes to chef, starting chef thread
+    // Waits while meal is being cooked
+    public void run() {
+        // Checks to see if list is empty, if it's not grabs a dish
+        Dish dish = restaurant.getDish();
+        if (dish != null) { // If dish is not empty
+            // Waiter grabbed dish
+            System.out.println("Waiter has grabbed dish: " + dish.getItem());
+        } else { // If there are no dishes available
+            System.out.println("No dishes available");
+        }
     }
 }
